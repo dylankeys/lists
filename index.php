@@ -1,6 +1,6 @@
 <?php
-require 'vendor/autoload.php';
-require 'config.php';
+require __DIR__ . 'vendor/autoload.php';
+require __DIR__ . 'config.php';
 
 use Medoo\Medoo;
 
@@ -14,8 +14,7 @@ $database = new Medoo([
     'password' => $conf->dbpass
 ]);
 
-$lists = $database->select('lists', ['name']);
-$lists = json_encode($lists);
+$lists = $database->select('lists', '*');
 
 // If a list has been selected, set this as the active list
 // Otherwise, set the first list as active (default)
@@ -57,7 +56,7 @@ else {
 						echo '<li class="active"><a href="index.php?list='.$list["id"].'">'.$list["name"].'</a></li>';
 					}
 					else {
-						echo '<a href="index.php?list='.$list["id"].'">'.$list["name"].'</a></li>';
+						echo '<li><a href="index.php?list='.$list["id"].'">'.$list["name"].'</a></li>';
 					}
 				}
 				?>
