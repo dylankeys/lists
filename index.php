@@ -69,7 +69,6 @@ else {
                <div class="lists">
 						<?php
 						$list_data = $database->select('list_data', ['name', 'listorder'], ['listid' => $active_list, 'ORDER' => 'listorder']);
-						$list_data = json_encode($list_data);
 						
 						foreach ($list_data as $list_item) {
 							echo '<p>'.$list_item['listorder'].'. '.$list_item['name'].'<p>';
