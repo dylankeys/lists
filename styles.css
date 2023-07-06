@@ -1,0 +1,169 @@
+:root {
+	--brand-primary: #670679;
+	--brand-secondary:#E2C007;
+}
+
+body {
+	background-color: var(--brand-primary);
+	color: #ffffff;
+}
+
+h1 {
+	color: var(--brand-secondary);
+}
+
+a {
+	color: #ffffff;
+}
+
+ul.nav {
+	padding: 20px;
+    margin: 0 auto;
+}
+
+ul.nav li a {
+	padding: 20px;
+	font-size: 1.2em;
+}
+
+div.heading {
+    padding-top: 100px;
+	width: 465px;
+    margin: 0 auto;
+}
+
+div.work {
+    padding-top: 50px;
+}
+
+h1.heading {
+	font-size: 7rem;
+}
+
+span.heading {
+	color: #ffffff;
+	font-weight: 200;
+}
+
+ul.skills {
+	font-weight: 200;
+    font-size: 1.2em;
+    list-style: none;
+    margin-top: -10px;
+    text-align: right;
+    color: var(--brand-secondary);
+}
+
+ul.nav li.active:after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    background: var(--brand-secondary);
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    left:calc(47%);
+}
+
+ul.nav li {
+    display: inline-block;
+    position: relative;
+}
+
+ul.nav li a {
+    color: white;
+    font-weight: 200;
+    font-size: 1.4em;
+}
+
+ul.nav li a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* SOCIALS START */
+
+div.socials {
+	padding-top: 150px;
+	text-align: center;
+}
+
+div.socials a {
+    padding: 30px;
+}
+
+a.twitter:hover {
+	color: #1DA1F2;
+	text-decoration: none;
+}
+
+a.instagram:hover {
+	color: #DD2A7B; 
+	text-decoration: none;
+}
+
+a.spotify:hover {
+ 	color: #1ED761;
+ 	text-decoration: none;
+}
+
+a.linkedin:hover {
+    color: #0073B1;
+    text-decoration: none;
+}
+
+/* SOCIALS END */
+
+h2 {
+    font-weight: 200;
+    font-size: 1.5em;
+}
+
+.interest {
+    height: 60px;
+}
+
+ul.interests {
+    padding-inline-start: 0px;
+}
+
+ul.interests li {
+    display: inline;
+}
+
+p.down {
+    text-align: center;
+    padding: 40px;
+}
+
+p.down a:hover {
+    color: var(--brand-secondary);
+}
+
+h2.profile {
+    font-weight: 300;
+    padding-top: 30px;
+}
+
+.card {
+    background-color: #460452 !important;
+}
+
+p {
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 600px) {
+    h1.heading {
+        font-size: 4rem;
+    }
+
+    ul.skills {
+        font-size: 0.9em;
+        text-align: unset;
+    }
+}
+
+.ctr {
+    text-align: center;
+}
