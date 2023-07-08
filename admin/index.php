@@ -34,7 +34,7 @@ else {
       <meta name="description" content="Dylan Keys lists">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="author" content="Dylan Keys">
-      <link rel="icon" href="images/favicon.ico">
+      <link rel="icon" href="../images/favicon.ico">
 
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -43,7 +43,7 @@ else {
       <script src="https://kit.fontawesome.com/f1d81b1e61.js" crossorigin="anonymous"></script>
 
       <!-- DK CSS -->
-      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="../styles.css">
 
       <title>Dylan Keys</title>
    </head>
