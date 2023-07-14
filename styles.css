@@ -81,76 +81,9 @@ ul.nav li a:hover {
     text-decoration: none;
 }
 
-/* SOCIALS START */
-
-div.socials {
-	padding-top: 150px;
-	text-align: center;
-}
-
-div.socials a {
-    padding: 30px;
-}
-
-a.twitter:hover {
-	color: #1DA1F2;
-	text-decoration: none;
-}
-
-a.instagram:hover {
-	color: #DD2A7B; 
-	text-decoration: none;
-}
-
-a.spotify:hover {
- 	color: #1ED761;
- 	text-decoration: none;
-}
-
-a.linkedin:hover {
-    color: #0073B1;
-    text-decoration: none;
-}
-
-/* SOCIALS END */
-
 h2 {
     font-weight: 200;
     font-size: 1.5em;
-}
-
-.interest {
-    height: 60px;
-}
-
-ul.interests {
-    padding-inline-start: 0px;
-}
-
-ul.interests li {
-    display: inline;
-}
-
-p.down {
-    text-align: center;
-    padding: 40px;
-}
-
-p.down a:hover {
-    color: var(--brand-secondary);
-}
-
-h2.profile {
-    font-weight: 300;
-    padding-top: 30px;
-}
-
-.card {
-    background-color: #460452 !important;
-}
-
-p {
-    font-weight: 200;
 }
 
 @media only screen and (max-width: 600px) {
@@ -166,4 +99,12 @@ p {
 
 .ctr {
     text-align: center;
+}
+
+.submit {
+    text-align: right;
+}
+
+.col-order {
+    width: 8.33%;
 }

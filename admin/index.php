@@ -14,6 +14,24 @@ $database = new Medoo([
     'password' => $conf->dbpass
 ]);
 
+if (isset($_POST['list_name'])) {
+	$database->insert('lists', ['name' => $_POST['list_name']]);
+	header('index.php?id=' . $database->lastInsertId());
+}
+elseif (isset($_POST['list'])) {
+	foreach ($_POST['list'] as $list_item_id => $list_item) {
+		$database->update('list_data', [
+			'name' => $list_item['name'],
+			'link' => $list_item['link'],
+			'listorder' => $list_item['listorder']
+		], [
+			'id' => $list_item_id
+		]);
+	}
+
+	header('index.php?id=' . $_POST['listid']);
+}
+
 $lists = $database->select('lists', '*');
 
 // If a list has been selected, set this as the active list
@@ -60,6 +78,7 @@ else {
 					}
 				}
 				?>
+				<li><a href="index.php?list=0">add list</a></li>
          </ul>
       </div>
 
@@ -68,26 +87,46 @@ else {
             <div class="col-md-auto">
                <div class="lists">
 						<table class="table">
-						  	<thead>
-						    	<tr>
-						    		<th scope="col">Name</th>
-						      	<th scope="col">Order</th>
-						    	</tr>
-						  	</thead>
-						  	<tbody>
-								<form method="post" action="index.php">
+							<form method="post" action="index.php">
 								<?php
-								$list_data = $database->select('list_data', ['name', 'listorder'], ['listid' => $active_list, 'ORDER' => 'listorder']);
-						
-								foreach ($list_data as $list_item) {
-									echo '<tr>';
-									echo '<td><input class="form-control" type="text" name="'.$active_list.'[name]" value="'.$list_item['name'].'"></td>';
-									echo '<td><input class="form-control" type="text" name="'.$active_list.'[order]" value="'.$list_item['listorder'].'"></td>';
-									echo '</tr>';
+								if ($active_list == 0) {
+									echo '<thead>
+						    				<tr>
+						    					<th scope="col">Name</th>
+						    				</tr>
+						  				</thead>
+						  				<tbody>
+											<tr>
+												<td><input class="form-control" type="text" name="list_name" placeholder="New list name"></td>
+											</tr>';
+								}
+								else {
+									$list_data = $database->select('list_data', '*', ['listid' => $active_list, 'ORDER' => 'listorder']);
+									
+									echo '<thead>
+						    				<tr>
+						    					<th scope="col">Name</th>
+												<th scope="col">Link</th>
+												<th scope="col col-order">Order</th>
+						    				</tr>
+						  				</thead>
+										<tbody>';
+
+									foreach ($list_data as $list_item) {
+										echo '<tr>';
+										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][name]" value="'.$list_item['name'].'"></td>';
+										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][link]" value="'.$list_item['link'].'"></td>';
+										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][listorder]" value="'.$list_item['listorder'].'"></td>';
+										echo '</tr>';
+									}
 								}
 								?>
-								</form>
+								<tr>
+									<input type="hidden" name="listid" value="<?php echo $active_list; ?>">
+									<input class="form-control submit" type="submit">
+								</tr>
 							</tbody>
+							</form>
 						</table>
 					</div>  
 				</div>

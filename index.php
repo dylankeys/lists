@@ -62,21 +62,17 @@ else {
 				?>
          </ul>
       </div>
+      
+      <br>
 
-      <div class="container">
-         <div class="row">
-            <div class="col-md-auto">
-               <div class="lists">
-						<?php
-						$list_data = $database->select('list_data', ['name', 'listorder'], ['listid' => $active_list, 'ORDER' => 'listorder']);
-						
-						foreach ($list_data as $list_item) {
-							echo '<p>'.$list_item['listorder'].'. '.$list_item['name'].'<p>';
-						}
-						?>
-					</div>  
-				</div>
-			</div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+         <?php
+         $list_data = $database->select('list_data', ['name', 'listorder'], ['listid' => $active_list, 'ORDER' => 'listorder']);
+         
+         foreach ($list_data as $list_item) {
+            echo '<p>'.$list_item['listorder'].'. '.$list_item['name'].'<p>';
+         }
+         ?>
       </div>
 	 
       <!-- Optional JavaScript -->
