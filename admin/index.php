@@ -16,7 +16,7 @@ $database = new Medoo([
 
 if (isset($_POST['list_name'])) {
 	$database->insert('lists', ['name' => $_POST['list_name']]);
-	header('index.php?id=' . $database->lastInsertId());
+	header('index.php?id=' . $database->id());
 }
 elseif (isset($_POST['list'])) {
 	foreach ($_POST['list'] as $list_item_id => $list_item) {
