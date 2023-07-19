@@ -86,48 +86,46 @@ else {
          <div class="row">
             <div class="col-md-auto">
                <div class="lists">
+			   		<form method="post" action="index.php">
 						<table class="table">
-							<form method="post" action="index.php">
-								<?php
-								if ($active_list == 0) {
-									echo '<thead>
-						    				<tr>
-						    					<th scope="col">Name</th>
-						    				</tr>
-						  				</thead>
-						  				<tbody>
-											<tr>
-												<td><input class="form-control" type="text" name="list_name" placeholder="New list name"></td>
-											</tr>';
-								}
-								else {
-									$list_data = $database->select('list_data', '*', ['listid' => $active_list, 'ORDER' => 'listorder']);
-									
-									echo '<thead>
-						    				<tr>
-						    					<th scope="col">Name</th>
-												<th scope="col">Link</th>
-												<th scope="col col-order">Order</th>
-						    				</tr>
-						  				</thead>
-										<tbody>';
+							<?php
+							if ($active_list == 0) {
+								echo '<thead>
+										<tr>
+											<th scope="col">Name</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input class="form-control" type="text" name="list_name" placeholder="New list name"></td>
+										</tr>';
+							}
+							else {
+								$list_data = $database->select('list_data', '*', ['listid' => $active_list, 'ORDER' => 'listorder']);
+								
+								echo '<thead>
+										<tr>
+											<th scope="col">Name</th>
+											<th scope="col">Link</th>
+											<th scope="col col-order">Order</th>
+										</tr>
+									</thead>
+									<tbody>';
 
-									foreach ($list_data as $list_item) {
-										echo '<tr>';
-										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][name]" value="'.$list_item['name'].'"></td>';
-										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][link]" value="'.$list_item['link'].'"></td>';
-										echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][listorder]" value="'.$list_item['listorder'].'"></td>';
-										echo '</tr>';
-									}
+								foreach ($list_data as $list_item) {
+									echo '<tr>';
+									echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][name]" value="'.$list_item['name'].'"></td>';
+									echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][link]" value="'.$list_item['link'].'"></td>';
+									echo '<td><input class="form-control" type="text" name="list['.$list_item['id'].'][listorder]" value="'.$list_item['listorder'].'"></td>';
+									echo '</tr>';
 								}
-								?>
-								<tr>
-									<input type="hidden" name="listid" value="<?php echo $active_list; ?>">
-									<input class="form-control submit" type="submit">
-								</tr>
+							}
+							?>
 							</tbody>
-							</form>
 						</table>
+						<input type="hidden" name="listid" value="<?php echo $active_list; ?>">
+						<input class="form-control submit" type="submit">
+					</form>
 					</div>  
 				</div>
 			</div>
