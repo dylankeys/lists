@@ -65,7 +65,7 @@ else {
       
       <br>
 
-      <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center ctr">
          <?php
          $list_data = $database->select('list_data', ['name', 'listorder'], ['listid' => $active_list, 'ORDER' => 'listorder']);
          
